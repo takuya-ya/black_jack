@@ -1,0 +1,54 @@
+@startuml
+
+class VendingMachine {
+  - coinManager : CoinManager
+  - cupManager : CupManager
+  - inventryManager : InventryManager
+  + depositCoin(coin:int): int
+  + addCup(cup:int): int
+  + replenishItem(item: Item, count: int): int
+  + pressButton(item: Item): string
+  + reciveChange(): int
+}
+
+class CoinManager {
+  + depositCoin(): int
+  + useCoin(): bool
+  + receiveChange(): int
+}
+
+class CupManager {
+   - addedCup
+   + addCup(cup : int): int
+   + useCup()
+}
+
+class InventryManager {
+  - inventry: array
+  + replenishItem(item: Item, count: int): int
+  + useInventry(item: Item, count: int): int
+}
+
+interface Item {
+  - price
+  - name
+  - cup
+}
+
+class Drink {}
+class Juice {}
+class CupDrink {}
+class Snack {}
+
+
+VendingMachine --> CoinManager
+VendingMachine --> CupManager
+VendingMachine --> InventryManager
+VendingMachine --> Item
+
+Item <|.. Drink
+Item <|.. Juice
+Item <|.. CupDrink
+Item <|.. Snack
+
+@enduml

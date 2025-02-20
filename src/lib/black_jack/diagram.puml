@@ -1,0 +1,53 @@
+@startuml
+
+class Game{
+  +Start()
+}
+
+class Dealer {
+  +drawAdditionCard(numOfCard : int) 追加カード取得処理をDeckで実行
+  +dealStartHand(playerName : Player, deck : DeckInterface, numberOfCards : int)drawAdditionalCardsでカードを引き、カードとプレイヤー紐づける
+}
+
+interface DeckInterface {
+  +drawCard($drawCardNum: int)
+}
+
+class Deck {
+  +makeDeck()
+  +drawCard($drawCardNum : int)
+  +dealCardToPlayer()カードとプレイヤー紐づける
+}
+
+class Card {
+}
+
+class Player {
+  -card : Card[]
+  +judgeDrawCard()
+  +addCard()dealerにカードを引かせる
+}
+
+class PointCalculator {
+  +calculatePoint(hand : Card[]) : int
+}
+
+class JudgeWinner {
+  +judge($plae) ポイントに基づいて勝者を判定
+}
+
+
+Game --> DeckInterface
+Game --> Dealer
+Game --> Player
+Game --> JudgeWinner
+Game --> PointCalculator
+Game --> JudgeWinner : ポイントを渡す
+Dealer --> DeckInterface
+DeckInterface <|.. Deck
+Deck *-- Card
+Player *-- Card
+JudgeWinner --> Dealer : ポイントを計算
+JudgeWinner --> Player : ポイントを計算
+
+@enduml

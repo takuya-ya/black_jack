@@ -1,0 +1,22 @@
+
+@startuml
+
+actor 購入者
+participant VendingMachineV2
+participant CoinManager
+participant InventryManager
+participant CupManager
+participant Item
+
+購入者 -> VendingMachineV2: coin
+VendingMachineV2 -> CoinManager: depositCoin
+CoinManager -> VendingMachineV2: depositedCoin
+VendingMachineV2 -> InventryManager: replenishItem
+InventryManager -> VendingMachineV2: replenishedItem
+VendingMachineV2 -> CupManager: addCup
+CupManager -> VendingMachineV2: addedCup
+VendingMachineV2 -> VendingMachineV2: pressButton
+
+VendingMachineV2 -> 購入者: item
+
+@enduml

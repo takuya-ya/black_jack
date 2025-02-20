@@ -1,0 +1,8 @@
+parameters:
+  level: 5 # 6で設定されていたが、型指定が細かすぎるのでレベルを下げる
+  paths:
+    - .
+    - lib
+  excludePaths:
+    - vendor
+    - lib/vending_machine_v2

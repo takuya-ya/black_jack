@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+  <ruleset name="Custom PSR12">
+  <description>A custom coding PSR12</description>
+   <file>./</file>
+   <directory>lib</directory>
+
+  <exclude-pattern>./vendor/*</exclude-pattern>
+  <exclude-pattern>./lib/vending_machine_v2</exclude-pattern>
+  <exclude-pattern>./tests/vending_machine_v2</exclude-pattern>
+  <arg name="colors"/>
+  <arg value="s"/>
+  <rule ref="PSR12">
+    <exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
+  </rule>
+</ruleset>
