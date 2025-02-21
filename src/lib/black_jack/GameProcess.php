@@ -119,9 +119,9 @@ class GameProcess
                 $this->pokerOutput->displayAddPlayerCard($drawnLastCard);
                 continue;
             }
+            // TODO プレイヤー名=>スコアの連想配列　
+            return $playerScore;
         }
-        // TODO プレイヤー名=>スコアの連想配列　
-        return $playerScore;
     }
 
     // TODO CPUの追加カード取得し処理
