@@ -35,9 +35,9 @@ class PokerOutput
         echo PHP_EOL;
     }
 
-    public function displayPlayerWinMessage(): void
+    public function displayPlayerWinMessage(): string
     {
-        echo "あなたの勝ちです。";
+        return "あなたの勝ちです。";
     }
 
     public function displayDealerBurstMessage(): void
@@ -46,9 +46,9 @@ class PokerOutput
     }
 
 
-    public function displayYourLoseMessage(): void
+    public function displayYourLoseMessage(): string
     {
-        echo "あなたの負けです。";
+        return "あなたの負けです。";
     }
 
     public function displayGameEndMessage(): void
