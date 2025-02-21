@@ -98,8 +98,12 @@ class GameProcessTest extends TestCase
         fwrite($this->handle, "Y\nY\n");
         rewind($this->handle);
 
+       // テスト対象メソッドを実行
         $message = $gameProcess->addYourTurn(['D6', 'D7'], $player);
+
+        // 期待する出力
         $this->assertSame('あなたの負けです。', $message);
+
     }
 
     public function testCheckBurnOut() {
