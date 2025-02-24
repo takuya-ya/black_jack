@@ -60,19 +60,6 @@ class GameProcess
         return false;
     }
 
-    // ディーラーのカード取得
-    public function processDealerTurn(array $hands): int
-    {
-        // ディーラーのスコア計算　
-        $dealerScore = $this->pointCalculator->calculatePoint($hands['dealerHand']);
-        // ディーラーの2枚目のカードを開示
-        $this->pokerOutput->displayAddDealerCard($hands);
-
-        // 追加カードを取得
-        $dealerScore = $this->drawDealerCardUntilLimit($hands['dealerHand'], $dealerScore);
-        return $dealerScore;
-    }
-
     // ディーラーの追加カード取得判断のロジック
     private const DRAW_STOP_SCORE = 17;
     public function drawDealerCardUntilLimit(array $dealerHand, int $dealerScore): int
@@ -90,6 +77,20 @@ class GameProcess
         }
         return $dealerScore;
     }
+    
+    // ディーラーのカード取得
+    public function processDealerTurn(array $hands): int
+    {
+        // ディーラーのスコア計算　
+        $dealerScore = $this->pointCalculator->calculatePoint($hands['dealerHand']);
+        // ディーラーの2枚目のカードを開示
+        $this->pokerOutput->displayAddDealerCard($hands);
+
+        // 追加カードを取得
+        $dealerScore = $this->drawDealerCardUntilLimit($hands['dealerHand'], $dealerScore);
+        return $dealerScore;
+    }
+
 
     // プレイヤーの追加カード取得
     public function addYourTurn(array $hand, Player $player)
