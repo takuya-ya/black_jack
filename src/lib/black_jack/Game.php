@@ -42,7 +42,7 @@ class Game
         }
 
         // ディーラーのカード追加処理
-        $dealerScore = $this->gameProcess->addDealerCard($hands);
+        $dealerScore = $this->gameProcess->processDealerTurn($hands);
         // ディーラーがバーンアウトしてないかチェック
         $isBurnOut = $this->gameProcess->processDealerBurst($dealerScore);
 

@@ -61,18 +61,18 @@ class GameProcessTest extends TestCase
         // TODO:複数プレイヤーの場合
     }
 
-    public function testDealerTurn()
+    public function testDrawDealerCardUntilLimit()
     {
         $gameProcess = new GameProcess($this->dealerMock, $this->deck, $this->pointCalculator, $this->pokerOutput);
-        $dealerScore = $gameProcess->dealerTurn(['D1', 'DA'], 11);
+        $dealerScore = $gameProcess->drawDealerCardUntilLimit(['D1', 'DA'], 11);
         $this->assertSame(23, $dealerScore);
     }
 
-    public function testAddDealerCard()
+    public function testProcessDealerTurn()
     {
         $gameProcess = new GameProcess($this->dealerMock, $this->deck, $this->pointCalculator, $this->pokerOutput);
         // 返り値を確認
-        $dealerScore = $gameProcess->addDealerCard(['dealerHand' => ['D10', 'D5']]);
+    $dealerScore = $gameProcess->processDealerTurn(['dealerHand' => ['D10', 'D5']]);
         $this->assertSame(21, $dealerScore);
     }
 
