@@ -106,9 +106,9 @@ class GameProcessTest extends TestCase
 
     }
 
-    public function testCheckBurnOut() {
+    public function testIsBurst() {
         $gameProcess = new GameProcess($this->dealerMock, $this->deck, $this->pointCalculator, $this->pokerOutput);
-        $this->assertSame(true, $gameProcess->checkBurnOut(22));
+        $this->assertSame(true, $gameProcess->isBurst(22));
     }
     // public function testJudgeWinner()
     // {

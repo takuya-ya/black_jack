@@ -44,7 +44,7 @@ class Game
         // ディーラーのカード追加処理
         $dealerScore = $this->gameProcess->addDealerCard($hands);
         // ディーラーがバーンアウトしてないかチェック
-        $isBurnOut = $this->gameProcess->processDealerBurnOut($dealerScore);
+        $isBurnOut = $this->gameProcess->processDealerBurst($dealerScore);
 
         if ($isBurnOut) {
             $this->pokerOutPut->displayGameEndMessage();
