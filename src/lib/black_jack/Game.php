@@ -37,8 +37,9 @@ class Game
 
         // プレイヤーの追加カード取得。バーストの場合は文字列の為、変数名をScoreでなくResultに設定
         $playerResult = $this->gameProcess->addYourTurn($hands['playerHands'][$yourName],   $playerInstances[$yourName]);
-        if ($this->isGameOver($playerResult)) {
-            return $this->yourLose($playerResult);
+        if ($playerResult === 'あなたの負けです。') {
+            echo "$playerResult" . PHP_EOL;
+            return 'ブラックジャックを終了します。' . PHP_EOL;
         }
 
         // ディーラーのカード追加処理
@@ -58,21 +59,5 @@ class Game
         // 勝敗の判定
         $this->gameProcess->judgeWinner($playerResult, $dealerScore, $this->playerNames);
         return 'ブラックジャックを終了します。' . PHP_EOL;
-        }
-
-        private function isGameOver(string | int $playerResult): bool
-        {
-            if($playerResult == 'あなたの負けです。') {
-                return true;
-            }
-            return false;
-        }
-
-        private function yourLose(string | int $playerResult): string
-        {
-            if ($playerResult === 'あなたの負けです。') {
-                echo "$playerResult" . PHP_EOL;
-                return 'ブラックジャックを終了します。' . PHP_EOL;
-            }
-        }
+    }
 }
