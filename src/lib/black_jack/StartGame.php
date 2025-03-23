@@ -20,5 +20,5 @@ $pokerOutput = new PokerOutput;
 $pointCalculator = new PointCalculator();
 $playerFactory = new PlayerFactory($dealer, $deckInstance, $players);
 $gameProcess = new GameProcess($dealer, $deckInstance, $pointCalculator, $pokerOutput);
-$game = new Game($dealer, $deckInstance, $gameProcess, $pointCalculator, $playerFactory, $players);
+$game = new Game($dealer, $deckInstance, $gameProcess, $pointCalculator, $pokerOutput, $playerFactory, $players);
 echo $game->start();
