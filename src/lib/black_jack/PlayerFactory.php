@@ -6,6 +6,7 @@ use BlackJack\Dealer;
 use BlackJack\Deck;
 use BlackJack\Player;
 use BlackJack\StrongCpu;
+use BlackJack\NormalCpu;
 
 class PlayerFactory
 {
