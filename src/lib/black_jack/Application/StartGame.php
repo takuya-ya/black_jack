@@ -2,7 +2,7 @@
 
 namespace BlackJack;
 
-require '../../vendor/autoload.php';
+require dirname(__DIR__, 3) . '/vendor/autoload.php';
 use BlackJack\Card;
 use BlackJack\Deck;
 use BlackJack\Dealer;
