@@ -1,8 +1,5 @@
 <?php
 
-namespace BlackJack;
+namespace BlackJack\Domain;
 
-class StrongCpu
-{
-
-}
+class StrongCpu {}
