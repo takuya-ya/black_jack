@@ -1,8 +1,8 @@
 <?php
 
-namespace BlackJack;
+namespace BlackJack\Domain;
 
-use BlackJack\Deck;
+use BlackJack\Domain\Deck;
 
 class Dealer
 {
@@ -10,15 +10,13 @@ class Dealer
     private const ADD_CARD_NUMBER = 1;
 
     public array $dealerCard = [];
-    public function __construct (private Deck $deck)
-    {
-    }
+    public function __construct(private Deck $deck) {}
 
     public function dealStartHands(): array
     {
         return $this->deck->drawCard(self::FIRST_CARD_NUMBER);
     }
-    
+
     public function dealAddCard(): array
     {
         return $this->deck->drawCard(self::ADD_CARD_NUMBER);

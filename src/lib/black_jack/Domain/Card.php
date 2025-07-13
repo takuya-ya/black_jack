@@ -1,9 +1,10 @@
 <?php
 
-namespace BlackJack;
+namespace BlackJack\Domain;
 
 class Card
 {
+
     public $cards = [];
     public function __construct()
     {

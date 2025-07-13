@@ -1,12 +1,12 @@
 <?php
 
-namespace BlackJack;
+namespace BlackJack\Application;
 
-use BlackJack\Dealer;
-use BlackJack\Deck;
-use BlackJack\Player;
-use BlackJack\PointCalculator;
-use BlackJack\PokerOutput;
+use BlackJack\Domain\Dealer;
+use BlackJack\Domain\Deck;
+use BlackJack\Domain\Player;
+use BlackJack\Domain\PointCalculator;
+use BlackJack\Support\PokerOutput;
 
 class GameProcess
 {
@@ -41,7 +41,8 @@ class GameProcess
     }
 
     // バースト判定
-    public function isBurst(int $score): bool {
+    public function isBurst(int $score): bool
+    {
         if ($score > 21) {
             return true;
         }
@@ -53,7 +54,7 @@ class GameProcess
     {
         // バースト判定　バーストであれば、trueを受け取る
         $isBurnOut = $this->isBurst($dealerScore);
-        if($isBurnOut) {
+        if ($isBurnOut) {
             $this->pokerOutput->displayDealerBurstMessage();
             return true;
         }
@@ -77,7 +78,7 @@ class GameProcess
         }
         return $dealerScore;
     }
-    
+
     // ディーラーのカード取得
     public function processDealerTurn(array $hands): int
     {

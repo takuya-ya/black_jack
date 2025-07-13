@@ -1,8 +1,8 @@
 <?php
 
-namespace BlackJack;
+namespace BlackJack\Domain;
 
-use BlackJack\Card;
+use BlackJack\Domain\Card;
 
 class Deck
 {

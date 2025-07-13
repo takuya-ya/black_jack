@@ -1,12 +1,12 @@
 <?php
 
-namespace BlackJack;
+namespace BlackJack\Application;
 
-use BlackJack\Deck;
-use BlackJack\Dealer;
-use BlackJack\PointCalculator;
-use BlackJack\PokerOutput;
-use BlackJack\GameProcess;
+use BlackJack\Domain\Deck;
+use BlackJack\Domain\Dealer;
+use BlackJack\Domain\PointCalculator;
+use BlackJack\Support\PokerOutput;
+use BlackJack\Application\GameProcess;
 
 class Game
 {
@@ -19,8 +19,7 @@ class Game
         public PokerOutput $pokerOutPut,
         public PlayerFactory $playerFactory,
         public array $playerNames
-    ) {
-    }
+    ) {}
 
     const CONTROL_PLAYER_NUMBER = 0;
     public function start(): string
@@ -53,8 +52,7 @@ class Game
         }
         // 現在のスコアを出力
         $this->pokerOutPut->displayDealerScore($dealerScore);
-        echo PHP_EOL;
-        ;
+        echo PHP_EOL;;
 
         // 勝敗の判定
         $this->gameProcess->judgeWinner($playerResult, $dealerScore, $this->playerNames);

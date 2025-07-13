@@ -1,12 +1,12 @@
 <?php
 
-namespace BlackJack;
+namespace BlackJack\Support;
 
-use BlackJack\Dealer;
-use BlackJack\Deck;
-use BlackJack\Player;
-use BlackJack\StrongCpu;
-use BlackJack\NormalCpu;
+use BlackJack\Domain\Dealer;
+use BlackJack\Domain\Deck;
+use BlackJack\Domain\Player;
+use BlackJack\Domain\StrongCpu;
+use BlackJack\Domain\NormalCpu;
 
 class PlayerFactory
 {
