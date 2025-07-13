@@ -6,6 +6,7 @@ use BlackJack\Domain\Deck;
 use BlackJack\Domain\Dealer;
 use BlackJack\Domain\PointCalculator;
 use BlackJack\Support\PokerOutput;
+use BlackJack\Support\PlayerFactory;
 use BlackJack\Application\GameProcess;
 
 class Game
